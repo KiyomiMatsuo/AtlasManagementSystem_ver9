@@ -69,7 +69,7 @@ class User extends Authenticatable
     //多対多のリレーション定義（教科側）
     //belongsToMany( 相手のモデル名 , 中間テーブルのテーブル名 , 自分のidが入るカラム名 , 相手のidが入るカラム名)
     public function subjects(){
-        return $this->belongsToMany('App\Subjects','subject_users','user_id','subject_id') ;// リレーションの定義
+        return $this->belongsToMany('App\Models\Users\Subjects','subject_users','user_id','subject_id') ;// リレーションの定義
     }
 
     // いいねしているかどうか
