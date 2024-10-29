@@ -3,6 +3,11 @@
   <div class="w-50 mt-5">
     <div class="m-3 detail_container">
       <div class="p-3">
+
+        @foreach ($errors->all() as $error)
+          <li>{{$error}}</li>
+        @endforeach
+
         @if(Auth::id() === $post->user->id)
         <div class="detail_inner_head">
           <div>
