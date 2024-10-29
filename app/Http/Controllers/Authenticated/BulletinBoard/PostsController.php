@@ -59,11 +59,15 @@ class PostsController extends Controller
 
     public function postEdit(Request $request){
         $request->validate([
-            'post_body'=>['required', 'string' , 'max:5000'],
+            'post_body' => ['required', 'string' , 'max:5000'],
+            'post_title' => ['required', 'string' , 'max:100'],
         ],[
             'post_body.required' => '投稿内容は必須です',
             'post_body.string' => '投稿は文字列で入力してください',
             'post_body.max' => '投稿は5000文字以内で入力してください',
+            'post_title.required' => 'タイトルは必須です',
+            'post_title.string' => 'タイトルは文字列で入力してください',
+            'post_title.max' => 'タイトルは100文字以内で入力してください',
         ]);
 
         Post::where('id', $request->post_id)->update([
