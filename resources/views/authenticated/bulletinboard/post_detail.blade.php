@@ -4,9 +4,13 @@
     <div class="m-3 detail_container">
       <div class="p-3">
 
-        @foreach ($errors->all() as $error)
-          <li>{{$error}}</li>
-        @endforeach
+      @if ($errors->has('post_title'))
+        <li>{{$errors->first('post_title')}}</li>
+      @endif
+
+      @if ($errors->has('post_body'))
+        <li>{{$errors->first('post_body')}}</li>
+      @endif
 
         @if(Auth::id() === $post->user->id)
         <div class="detail_inner_head">
@@ -50,6 +54,11 @@
     <div class="comment_container border m-5">
       <div class="comment_area p-3">
         <p class="m-0">コメントする</p>
+
+        @if ($errors->has('comment'))
+          <li>{{$errors->first('comment')}}</li>
+        @endif
+
         <textarea class="w-100" name="comment" form="commentRequest"></textarea>
         <input type="hidden" name="post_id" form="commentRequest" value="{{ $post->id }}">
         <input type="submit" class="btn btn-primary" form="commentRequest" value="投稿">
