@@ -87,6 +87,14 @@ class PostsController extends Controller
     }
 
     public function commentCreate(Request $request){
+        $request->validate([
+            'comment' => ['required', 'string' , 'max:250'],
+        ],[
+            'comment.required' => '※内容は必須です',
+            'comment.string' => '※文字列で入力してください',
+            'comment.max' => '※250文字以内で入力してください',
+        ]);
+
         PostComment::create([
             'post_id' => $request->post_id,
             'user_id' => Auth::id(),
@@ -108,6 +116,7 @@ class PostsController extends Controller
         return view('authenticated.bulletinboard.post_like', compact('posts', 'like'));
     }
 
+    //いいねする機能
     public function postLike(Request $request){
         $user_id = Auth::id();
         $post_id = $request->post_id;
@@ -121,6 +130,7 @@ class PostsController extends Controller
         return response()->json();
     }
 
+    //いいねを消す機能
     public function postUnLike(Request $request){
         $user_id = Auth::id();
         $post_id = $request->post_id;
