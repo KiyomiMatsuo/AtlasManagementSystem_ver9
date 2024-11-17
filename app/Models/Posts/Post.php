@@ -25,6 +25,8 @@ class Post extends Model
 
     public function subCategories(){
         // リレーションの定義
+        //belongsToMany( 相手のモデル名 , 中間テーブルのテーブル名 , 自分のidが入るカラム名 , 相手のidが入るカラム名)
+        return $this->belongsToMany('App\Models\Categories\SubCategory','post_sub_categories','post_id','sub_category_id') ;
     }
 
     // コメント数
