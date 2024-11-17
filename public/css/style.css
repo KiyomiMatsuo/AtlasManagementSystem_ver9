@@ -16,6 +16,28 @@ li {
   list-style: none;
 }
 
+/*ログアウト画面*/
+.logout,
+.register {
+  background-color: #ecf1f6;
+}
+
+.Atlas-logo {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.container {
+  background-color: #FFF;
+  border-radius: 10px;
+  box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.1);
+  ;
+}
+
+/* 新規登録 */
+
 /* サイドバー */
 .sidebar {
   width: 150px;
