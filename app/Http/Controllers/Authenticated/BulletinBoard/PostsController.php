@@ -23,11 +23,21 @@ class PostsController extends Controller
         $post_comment = new Post;
         if(!empty($request->keyword)){
             $posts = Post::with('user', 'postComments')
+            //キーワードを入力して、タイトルの曖昧検索
             ->where('post_title', 'like', '%'.$request->keyword.'%')
-            ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
+            //キーワードを入力して、投稿内容の曖昧検索
+            ->orWhere('post', 'like', '%'.$request->keyword.'%')
+            //キーワードを入力して、完全一致だったらサブカテゴリー検索
+            ->orWhereHas('subCategories', function ($query) use ($request) {
+                $query->where('sub_category', '=', $request->keyword);
+                })->get();
         }else if($request->category_word){
             $sub_category = $request->category_word;
-            $posts = Post::with('user', 'postComments')->get();
+            $posts = Post::with('user', 'postComments')
+            //キーワードを入力して、サブカテゴリーが完全に一致していたら
+            ->whereHas('subCategories', function ($query) use ($sub_category) {
+            $query->where('sub_category', '=', $sub_category);
+            })->get();
         }else if($request->like_posts){
             $likes = Auth::user()->likePostId()->get('like_post_id');
             $posts = Post::with('user', 'postComments')
@@ -57,6 +67,9 @@ class PostsController extends Controller
             'post' => $request->post_body
         ]);
         $post->subCategories()->attach($request->post_category_id);
+        // 上記の subCategories() はPost モデルで定義されたリレーションメソッド
+        // 上記の attach() メゾットは多対多のリレーションの時に、中間テーブルのレコードを新規作成するためのもの
+        //                ()の中にある $request->post_category_id は送る値を記述する
 
         return redirect()->route('post.show');
     }
