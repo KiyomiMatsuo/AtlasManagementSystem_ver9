@@ -20,15 +20,15 @@
     <body class="all_content">
         <div class="d-flex">
             <div class="sidebar">
-                <p><a href="{{ route('top.show') }}">トップ</a></p>
-                <p><a href="/logout">ログアウト</a></p>
-                <p><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
+                <p><i class="fa-solid fa-house" style="color: #ffffff; margin: 0.25em;"></i><a href="{{ route('top.show') }}">トップ</a></p>
+                <p><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff; margin: 0.25em;"></i><a href="/logout">ログアウト</a></p>
+                <p><i class="fa-regular fa-calendar" style="color: #ffffff; margin: 0.25em;"></i><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
                 @if(Auth::user()->role !== 4)
-                    <p><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
-                    <p><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
+                    <p><i class="fa-regular fa-calendar-check" style="color: #ffffff; margin: 0.25em;"></i><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
+                    <p><i class="fa-regular fa-pen-to-square" style="color: #ffffff; margin: 0.25em;"></i><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
                 @endif
-                <p><a href="{{ route('post.show') }}">掲示板</a></p>
-                <p><a href="{{ route('user.show') }}">ユーザー検索</a></p>
+                <p><i class="fa-regular fa-comment-dots" style="color: #ffffff; margin: 0.25em;"></i><a href="{{ route('post.show') }}">掲示板</a></p>
+                <p><i class="fa-solid fa-user-group" style="color: #ffffff; margin: 0.25em;"></i><a href="{{ route('user.show') }}">ユーザー検索</a></p>
             </div>
             <div class="main-container">
                 {{ $slot }}
@@ -38,5 +38,6 @@
         <script src="{{ asset('js/bulletin.js') }}" rel="stylesheet"></script>
         <script src="{{ asset('js/user_search.js') }}" rel="stylesheet"></script>
         <script src="{{ asset('js/calendar.js') }}" rel="stylesheet"></script>
+        <script src="https://kit.fontawesome.com/ae9e8e4f23.js" crossorigin="anonymous"></script>
     </body>
 </html>
