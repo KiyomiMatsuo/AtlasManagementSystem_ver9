@@ -26,9 +26,11 @@
   <div class="other_area border w-25">
     <div class="border m-4">
       <div class=""><a href="{{ route('post.input') }}">投稿</a></div>
-      <div class="">
-        <input type="text" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
-        <input type="submit" value="検索" form="postSearchRequest">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="キーワードを検索" name="keyword" form="postSearchRequest" aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <input type="submit" class="btn btn-outline-secondary" id="button-addon2" value="検索" form="postSearchRequest">
+        </div>
       </div>
       <input type="submit" name="like_posts" class="category_btn" value="いいねした投稿" form="postSearchRequest">
       <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
