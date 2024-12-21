@@ -17,7 +17,7 @@
 <div class="modal js-modal">
   <div class="modal__bg js-modal-close"></div>
   <div class="modal__content">
-    <form action="{{ route('post.edit') }}" method="post">
+    <form action="{{ route('deleteParts') }}" method="post">
       <div class="w-100">
         <div class="modal-inner-reserve w-50 m-auto">
           <p>予約日：<span class="reserve-day"></span></p>
@@ -29,7 +29,10 @@
         </div> -->
         <div class="w-50 m-auto edit-modal-btn d-flex">
           <a class="js-modal-close btn btn-primary d-inline-block" href="">閉じる</a>
-          <input type="hidden" class="cancel-modal-hidden" name="cancel_id" value="value" reserve_part=reserve_part>
+          <!-- 日付を送るためのinput -->
+          <input type="hidden" class="cancel-modal-hidden-date" name="date" value="">
+          <!-- 部を送るためのinput -->
+          <input type="hidden" class="cancel-modal-hidden-part" name="part" value="">
           <input type="submit" class="btn btn-danger d-block" value="キャンセル">
         </div>
       </div>
