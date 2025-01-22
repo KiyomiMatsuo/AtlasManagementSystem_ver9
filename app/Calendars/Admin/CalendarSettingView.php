@@ -4,8 +4,8 @@ use Carbon\Carbon;
 use App\Models\Calendars\ReserveSettings;
 
 class CalendarSettingView{
-  private $carbon;
 
+  private $carbon;
   function __construct($date){
     $this->carbon = new Carbon($date);
   }
@@ -34,18 +34,19 @@ class CalendarSettingView{
 
     foreach($weeks as $week){
       $html[] = '<tr class="'.$week->getClassName().'">';
+
       $days = $week->getDays();
       foreach($days as $day){
         $startDay = $this->carbon->format("Y-m-01");
         $toDay = $this->carbon->format("Y-m-d");
 
-       if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
+        if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
           $html[] = '<td class="past-day border">';
         }else{
           $html[] = '<td class="border '.$day->getClassName().'">';
         }
         $html[] = $day->render();
-        $html[] = '<div class="adjust-area">';
+        $html[] = '<div class="adjust-area">';//部数と予約枠が表示されている（予約枠登録）
         if($day->everyDay()){
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
             $html[] = '<p class="d-flex m-0 p-0">1部<input class="w-25" style="height:20px;" name="reserve_day['.$day->everyDay().'][1]" type="text" form="reserveSetting" value="'.$day->onePartFrame($day->everyDay()).'" disabled></p>';
