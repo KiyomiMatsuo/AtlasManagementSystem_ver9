@@ -25,7 +25,9 @@
   </div>
   <div class="other_area border w-25">
     <div class="border m-4">
-      <div class=""><a href="{{ route('post.input') }}">投稿</a></div>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="button"><a href="{{ route('post.input') }}">投稿</a></button>
+      </div>
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="キーワードを検索" name="keyword" form="postSearchRequest" aria-describedby="button-addon2">
         <div class="input-group-append">
