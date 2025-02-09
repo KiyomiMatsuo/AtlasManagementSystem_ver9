@@ -50,13 +50,13 @@ class RegisterFormRequest extends FormRequest
 
             // 実際に存在する日付かチェック
             if (!checkdate($month, $day, $year)) {
-                $validator->errors()->add('birth_day', '正しい日付を入力してください。');
+                $validator->errors()->add('birth_day', '※正しい日付を入力してください。');
             }
 
             // 2000年1月1日～今日までの範囲かチェック
             $birth_day = sprintf('%04d-%02d-%02d', $year, $month, $day);
             if ($birth_day < '2000-01-01' || $birth_day > now()->format('Y-m-d')) {
-                $validator->errors()->add('birth_day', '誕生日は2000年1月1日から今日までの日付を選択してください。');
+                $validator->errors()->add('birth_day', '※誕生日は2000年1月1日から今日までの日付を選択してください。');
             }
         });
     }
@@ -84,13 +84,10 @@ class RegisterFormRequest extends FormRequest
             'sex.required' => '※性別は必須です',
 
             'old_year.required' => '※年を選択してください',
-            'old_year.integer' => '※年は整数で入力してください',
             'old_year.between' => '※2000年から' .now()->year. '年の間で入力してください',
             'old_month.required' => '※月を選択してください',
-            'old_month.integer' => '※月は整数で入力してください',
             'old_month.between' => '※1から12の間で入力してください',
             'old_day.required' => '※日を選択してください',
-            'old_day.integer' => '※日は整数で入力してください',
             'old_day.between' => '※1から31の間で入力してください',
 
             'role.required' => '※役職は必須です',
