@@ -20,7 +20,7 @@
     <body class="all_content">
         <div class="d-flex">
             <div class="sidebar">
-                <p><i class="fa-solid fa-house" style="color: #ffffff; margin: 0.25em;"></i><a href="{{ route('top.show') }}">トップ</a></p>
+                <p class="mt-4"><i class="fa-solid fa-house" style="color: #ffffff; margin: 0.25em;"></i><a href="{{ route('top.show') }}">トップ</a></p>
                 <p><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff; margin: 0.25em;"></i><a href="/logout">ログアウト</a></p>
                 <p><i class="fa-regular fa-calendar" style="color: #ffffff; margin: 0.25em;"></i><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
                 @if(Auth::user()->role !== 4)
