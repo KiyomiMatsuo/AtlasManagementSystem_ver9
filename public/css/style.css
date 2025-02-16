@@ -52,7 +52,7 @@ li {
 /* サイドバー */
 .sidebar {
   width: 190px;
-  /* height: 100vh; */
+  height: 100vh;
   background-color: #03AAD2;
   font-weight: bold;
 }
@@ -137,6 +137,8 @@ li {
 .day_part {
   color: #494949;
   font-size: 12px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .adjust-table {
@@ -410,7 +412,7 @@ li {
 }
 
 .sub_categories input {
-  width: 80%;
+  width: 75%;
   background-color: transparent;
   border: none;
   margin-left: 5%;
@@ -488,7 +490,7 @@ li {
   width: 75%;
   /* gap: 10px; */
   margin: 10px auto;
-  height: 80vh;
+  /* height: 80vh; */
   overflow: scroll;
   padding: 10px 30px;
   /* background: #FFF; */
