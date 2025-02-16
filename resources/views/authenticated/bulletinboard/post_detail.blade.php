@@ -15,7 +15,7 @@
         @if(Auth::id() === $post->user->id)
         <div class="detail_inner_head">
           @foreach($post->subCategories as $sub_category)
-          <div><span class="sub_categories badge bg-secondary">{{ $sub_category->sub_category }}</span></div>
+          <div><span class="sub_categories_tag badge">{{ $sub_category->sub_category }}</span></div>
           @endforeach
           <div>
             <span class="edit-modal-open btn btn-primary btn-sm" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>

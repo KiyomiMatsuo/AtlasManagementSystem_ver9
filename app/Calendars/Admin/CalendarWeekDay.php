@@ -33,15 +33,15 @@ class CalendarWeekDay{
     if($one_part){
       $date = $ymd;
       $one_part_count = $one_part->users->count();
-      $html[] = '<p class="day_part m-0 pt-1"><a href="/calendar/'.$date.'/1">1部</a> '.$one_part_count.'</p>';
+      $html[] = '<p class="day_part m-0 pt-1"><a href="/calendar/'.$date.'/1">1部</a> <span>'.$one_part_count.'</span></p>';
     }
     if($two_part){
       $two_part_count = $two_part->users->count();
-      $html[] = '<p class="day_part m-0 pt-1"><a href="/calendar/'.$date.'/2">2部</a> '.$two_part_count.'</p>';
+      $html[] = '<p class="day_part m-0 pt-1"><a href="/calendar/'.$date.'/2">2部</a> <span>'.$two_part_count.'</span></p>';
     }
     if($three_part){
       $three_part_count = $three_part->users->count();
-      $html[] = '<p class="day_part m-0 pt-1"><a href="/calendar/'.$date.'/3">3部</a> '.$three_part_count.'</p>';
+      $html[] = '<p class="day_part m-0 pt-1"><a href="/calendar/'.$date.'/3">3部</a> <span>'.$three_part_count.'</span></p>';
     }
     $html[] = '</div>';
 
