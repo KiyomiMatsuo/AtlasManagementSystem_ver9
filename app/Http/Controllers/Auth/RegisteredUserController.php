@@ -63,7 +63,7 @@ class RegisteredUserController extends Controller
                 $user->subjects()->attach($subjects);
             }
             DB::commit();
-            return view('auth.login.login');
+            return view('/login');
         }catch(\Exception $e){
             DB::rollback();
             return redirect()->route('loginView');

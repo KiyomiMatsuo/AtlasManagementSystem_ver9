@@ -93,9 +93,7 @@ class RegisterFormRequest extends FormRequest
             'role.required' => '※役職は必須です',
             'password.required' => '※パスワードは必須です',
             'password.between' => '※パスワードは8文字以上,30文字以内で入力してください',
-            'password_confirmation.required' => '※パスワード確認は必須です',
-            'password_confirmation.between' => '※パスワード確認は8文字以上,30文字以内で入力してください',
-            'password_confirmation.confirmed' => '※パスワードと一致していません',
+            'password.confirmed' => '※パスワードと確認用パスワードが一致しません。',
         ];
     }
 

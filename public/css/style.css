@@ -37,6 +37,12 @@ li {
 }
 
 /* 新規登録 */
+.register_form input,
+.password_form input {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
 .old_year,
 .old_month,
 .old_day {
@@ -52,7 +58,7 @@ li {
 /* サイドバー */
 .sidebar {
   width: 190px;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #03AAD2;
   font-weight: bold;
 }
@@ -103,17 +109,12 @@ li {
   background: #D3D3D3;
 }
 
-.day-mon,
-.day-tue,
-.day-wed,
-.day-thu,
-.day-fri,
-.past-day p,
-.day_part span {
+.past-day-no {
   color: #777777;
 }
 
-.day-sat {
+.day-sat,
+.past-day .day-sat {
   color: #0000FF;
 }
 
@@ -159,7 +160,6 @@ li {
 
 .frame-text {
   text-align: center;
-  color: #777777;
 }
 
 .adjust-table-btn {
@@ -307,6 +307,7 @@ li {
 .error_message {
   font-size: 12px;
   color: red;
+  margin-top: 20px;
 }
 
 /* 掲示板 詳細画面 */

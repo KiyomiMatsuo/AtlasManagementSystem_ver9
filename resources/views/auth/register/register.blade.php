@@ -1,18 +1,18 @@
 <x-guest-layout>
-  <div class="register">
+  <div class="register pt-5 pb-5">
     <form action="{{ route('registerPost') }}" method="POST">
-      <div class="w-100 vh-100 d-flex" style="align-items:center; justify-content:center;">
+      <div class="w-100 d-flex" style="align-items:center; justify-content:center;">
         <div class="container w-25 vh-75 border p-4">
           <div class="register_form">
+            @if ($errors->has('over_name'))
+              <p class="error_message">{{$errors->first('over_name')}}</p>
+            @endif
+
+            @if ($errors->has('under_name'))
+              <p class="error_message">{{$errors->first('under_name')}}</p>
+            @endif
             <div class="d-flex mt-3" style="justify-content:space-between">
               <div class="" style="width:140px">
-                @if ($errors->has('over_name'))
-                  <p class="error_message">{{$errors->first('over_name')}}</p>
-                @endif
-
-                @if ($errors->has('under_name'))
-                  <p class="error_message">{{$errors->first('under_name')}}</p>
-                @endif
                 <label class="d-block m-0" style="font-size:13px">姓</label>
                 <div class="border-bottom border-primary" style="width:140px;">
                   <input type="text" style="width:140px;" class="border-0 over_name" name="over_name">
@@ -50,7 +50,7 @@
             </div>
           </div>
           @if ($errors->has('sex'))
-            <li class="error_message">{{$errors->first('sex')}}</li>
+            <p class="error_message">{{$errors->first('sex')}}</p>
           @endif
           <div class="mt-3 d-flex justify-content-around">
             <label style="font-size:13px"><input type="radio" name="sex" class="sex" value="1">男性</label>
@@ -58,16 +58,16 @@
             <label style="font-size:13px"><input type="radio" name="sex" class="sex" value="3">その他</label>
           </div>
           @if ($errors->has('old_year'))
-            <li class="error_message">{{$errors->first('old_year')}}</li>
+            <p class="error_message">{{$errors->first('old_year')}}</p>
           @endif
           @if ($errors->has('old_month'))
-            <li class="error_message">{{$errors->first('old_month')}}</li>
+            <p class="error_message">{{$errors->first('old_month')}}</p>
           @endif
           @if ($errors->has('old_day'))
-            <li class="error_message">{{$errors->first('old_day')}}</li>
+            <p class="error_message">{{$errors->first('old_day')}}</p>
           @endif
           @if ($errors->has('birth_day'))
-            <li class="error_message">{{$errors->first('birth_day')}}</li>
+            <p class="error_message">{{$errors->first('birth_day')}}</p>
           @endif
           <div class="mt-3">
             <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
@@ -154,7 +154,7 @@
             <label style="font-size:13px" class="ymd-unit">日</label>
           </div>
           @if ($errors->has('role'))
-            <li class="error_message">{{$errors->first('role')}}</li>
+            <p class="error_message">{{$errors->first('role')}}</p>
           @endif
           <div class="mt-3">
             <label class="d-block m-0" style="font-size:13px">役職</label>
@@ -175,21 +175,21 @@
             @endforeach
           </div>
           @if ($errors->has('password'))
-            <li class="error_message">{{$errors->first('password')}}</li>
+            <p class="error_message">{{$errors->first('password')}}</p>
           @endif
-          <div class="mt-3">
-            <label class="d-block m-0" style="font-size:13px">パスワード</label>
-            <div class="border-bottom border-primary">
-              <input type="password" class="border-0 w-100 password" name="password">
+          <div class="password_form">
+            <div class="mt-3">
+              <label class="d-block m-0" style="font-size:13px">パスワード</label>
+              <div class="border-bottom border-primary">
+                <input type="password" class="border-0 w-100 password" name="password">
+              </div>
             </div>
-          </div>
-          @if ($errors->has('password_confirmation'))
-            <li class="error_message">{{$errors->first('password_confirmation')}}</li>
-          @endif
-          <div class="mt-3">
-            <label class="d-block m-0" style="font-size:13px">確認用パスワード</label>
-            <div class="border-bottom border-primary">
-              <input type="password" class="border-0 w-100 password_confirmation" name="password_confirmation">
+
+            <div class="mt-3">
+              <label class="d-block m-0" style="font-size:13px">確認用パスワード</label>
+              <div class="border-bottom border-primary">
+                <input type="password" class="border-0 w-100 password_confirmation" name="password_confirmation">
+              </div>
             </div>
           </div>
           <div class="mt-4 text-right">
